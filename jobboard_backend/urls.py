@@ -1,5 +1,5 @@
 """
-URL configuration for fundihub project.
+URL configuration for jobboard project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -30,7 +30,7 @@ router.register(r"applications", ApplicationsViewSet, basename="applications")
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
-	path('api/', include(router.urls)),
-	path('api/auth/login', LoginView.as_view()),
-	path('api/auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+	path('api/v1/', include(router.urls)),
+	path('api/v1/auth/login', LoginView.as_view()),
+	path('api/v1/auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
 ]
