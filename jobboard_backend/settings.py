@@ -87,8 +87,15 @@ WSGI_APPLICATION = 'jobboard_backend.wsgi.application'
 
 # Database
 # USE_SQLITE=true forces SQLite regardless of other DB envs
-USE_SQLITE = os.getenv('USE_SQLITE', 'True') == 'True'
-if not USE_SQLITE and os.getenv('DB_NAME'):
+
+if os.getenv('USE_SQLITE', 'False') == 'True':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -97,13 +104,6 @@ if not USE_SQLITE and os.getenv('DB_NAME'):
             'PASSWORD': os.getenv('DB_PASSWORD'),
             'HOST': os.getenv('DB_HOST', '127.0.0.1'),
             'PORT': os.getenv('DB_PORT', '5432'),
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
 
