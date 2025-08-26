@@ -18,13 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenRefreshView
+from apps.users.views import LoginView
+from apps.workers.views import WorkersViewSet
+from apps.jobs.views import JobsViewSet
+from apps.applications.views import ApplicationsViewSet
 
-# ViewSets will be registered once implemented
 router = DefaultRouter()
+router.register(r"workers", WorkersViewSet, basename="workers")
+router.register(r"jobs", JobsViewSet, basename="jobs")
+router.register(r"applications", ApplicationsViewSet, basename="applications")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    path('api/auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
-    # path('api/auth/login', LoginView.as_view()),  # to add after implementing
+	path('admin/', admin.site.urls),
+	path('api/', include(router.urls)),
+	path('api/auth/login', LoginView.as_view()),
+	path('api/auth/refresh', TokenRefreshView.as_view(), name='token_refresh'),
 ]
