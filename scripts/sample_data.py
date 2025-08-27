@@ -78,7 +78,7 @@ def create_sample_data():
         hourly_rate=Decimal('50.00'),
         rating=Decimal('4.8'),
         review_count=12,
-        skills=['React', 'Node.js', 'Python', 'Django'],
+        skills=['Moving', 'Painting', 'Plumbing', 'Cleaning'],
         portfolio=['https://portfolio1.com', 'https://project2.com'],
         available=True
     )
@@ -90,7 +90,7 @@ def create_sample_data():
         hourly_rate=Decimal('45.00'),
         rating=Decimal('4.6'),
         review_count=8,
-        skills=['Photoshop', 'Illustrator', 'InDesign', 'UI/UX'],
+        skills=['Moving', 'Painting', 'Plumbing', 'Cleaning'],
         portfolio=['https://design1.com', 'https://design2.com'],
         available=True
     )
@@ -102,7 +102,7 @@ def create_sample_data():
         hourly_rate=Decimal('60.00'),
         rating=Decimal('4.9'),
         review_count=15,
-        skills=['React Native', 'iOS', 'Android', 'Flutter'],
+        skills=['Moving', 'Painting', 'Plumbing', 'Cleaning'],
         portfolio=['https://mobile1.com', 'https://mobile2.com'],
         available=True
     )
